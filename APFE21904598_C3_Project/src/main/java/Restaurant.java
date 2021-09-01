@@ -87,7 +87,7 @@ public class Restaurant {
             if (item == null) {
                 throw new itemNotFoundException(itemName);
             }
-            orderValue += item.getPrice;
+            orderValue += item.getPrice();
         }
         return orderValue;
     }
