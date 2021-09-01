@@ -10,7 +10,7 @@ class RestaurantTest {
     Restaurant restaurant;
 
     @BeforeEach
-    public void creating_a_restaurant_for_testing(){
+    public void beforeEachTest(){
         LocalTime openingTime = LocalTime.parse("10:30:00");
         LocalTime closingTime = LocalTime.parse("22:00:00");
         restaurant = new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
@@ -57,9 +57,11 @@ class RestaurantTest {
 
     //<<<<<<<<<<<<<<<<<<<<<<TOTAL ORDER VALUE>>>>>>>>>>>>>>>>>>>>>>>>>
     @Test
-    public void total_order_value_should_get_total_amount_when_items_are_selected(){
-        menuItemValue = restaurant.getMenu();
-        assertEquals(388,restaurant.totalOrderValue(menuItemValue));
+    public void total_order_value_should_be_equal_to_total_price_of_items_selected(){
+        List<String> itemNames = new ArrayList<String>();
+        itemNames.add("Sweet corn soup");
+        itemNames.add("Vegetable lasagne");
+        assertEquals(388,restaurant.totalOrderValue(itemNames));
     }
     //<<<<<<<<<<<<<<<<<<<<<<TOTAL ORDER VALUE>>>>>>>>>>>>>>>>>>>>>>>>>
 }
